@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: leave-management
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: leave-management
+  template:
+    metadata:
+      labels:
+        app: leave-management
+    spec:
+      containers:
+      - name: leave-management
+        image: yourdockerhub/leave-management:latest
+        ports:
+        - containerPort: 8080
